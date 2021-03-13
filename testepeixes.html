@@ -1,0 +1,94 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width">
+<head>
+
+<style>
+
+body{
+background: navy url(deepsea.jpg) top center no-repeat fixed;
+background-size: cover;
+height: 2000px;
+}
+
+#bubbles1, #bubbles2, #fish{
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+position: fixed;
+z-index: -1;
+background: url(bubbles1.png) 5% 50% no-repeat;
+}
+
+#bubbles2{
+background: url(bubbles3.png) 95% 90% no-repeat;
+}
+
+#fish{
+left: -100%;
+background: url(fish.png) right 90% no-repeat;
+}
+
+div.credits{
+text-align: right;
+color: white;
+}
+
+div.credits a{
+color: lightyellow;
+text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="credits">Image Credits: <a href="http://mikithemaus.deviantart.com/art/Deep-Blue-Sea-308097986" target="_new">Ocean</a> | <a href="http://www.pixeden.com/miscellaneous/psd-water-bubbles" target="_new">bubbles</a> | <a href="http://www.deviantart.com/art/Fish-1-PSD-139123575" target="_new">fish</a> | <a href="index.shtml">Back to tutorial</a></div> 
+
+
+<div id="bubbles1"></div>
+<div id="bubbles2"></div>
+<div id="fish"></div>
+
+<script>
+// Create cross browser requestAnimationFrame method:
+window.requestAnimationFrame = window.requestAnimationFrame
+                               || window.mozRequestAnimationFrame
+                               || window.webkitRequestAnimationFrame
+                               || window.msRequestAnimationFrame
+                               || function(f){setTimeout(f, 1000/60)}
+
+var bubble1 = document.getElementById('bubbles1')
+var bubble2 = document.getElementById('bubbles2')
+var fish = document.getElementById('fish')
+
+var scrollheight = 	document.body.scrollHeight // height of entire document
+var windowheight = window.innerHeight // height of browser window
+
+
+function parallaxbubbles(){
+	var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically
+	var scrollamount = (scrolltop / (scrollheight-windowheight)) * 100 // get amount scrolled (in %)
+	bubble1.style.top = -scrolltop * .2 + 'px' // move bubble1 at 20% of scroll speed
+	bubble2.style.top = -scrolltop * .5 + 'px' // move bubble2 at 50% of scroll speed
+	fish.style.left = -100 + scrollamount + '%'
+
+}
+
+window.addEventListener('scroll', function(){ // on page scroll
+	requestAnimationFrame(parallaxbubbles) // call parallaxbubbles() on next available screen repaint
+}, false)
+
+window.addEventListener('resize', function(){ // on window resize
+	var scrollamount = (scrolltop / (scrollheight-windowheight)) * 100 // get amount scrolled (in %)
+	fish.style.left = -100 + scrollamount + '%'
+}, false)
+
+
+</script>
+
+</body>
+
+</html>
