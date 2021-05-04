@@ -1,28 +1,29 @@
 <html>
 <head>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<meta author="Rafael Schüler de Carvalho 2017">
+	<meta author="Rafael Schüler de Carvalho 2021">
+	<meta charset="utf-8"><html>
+<head>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<meta author="Rafael Schüler de Carvalho 2021">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	
+		
+<title>Crud para estágio na Flexy</title> 
 	
 	
-	<style>
-#videoElement {
-	width: 400px;
-	height: 275px;
-	background-color: #666;
-}
-</style>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 	
-	
-
-<title>AMS</title>
 
 <style>
 
-				
 *{
 	margin: 0;
 	padding: 0;
@@ -150,7 +151,7 @@ position:unset;
 top: 10px;
 left: 10px;
 text-align: right;
-background-color: #8B0000;
+background-color: ;
 background-image: url("mudas.jpg")
 font-style: bold;
 font-family: Arial, Helvetica, sans-serif;
@@ -164,16 +165,13 @@ text-shadow: -0.06em 0 red, 0.06em 0 cyan;
 position:unset;
 top: 10px;
 left: 10px;
-background-color: #adaa6f;
-background-image: url("mudas.jpg")
+background-color: #b6dc76;
+background-image: url("")
 font-style: bold;
 font-family: Arial, Helvetica, sans-serif;
 font-size: xx-large;
 
 }
-
-
-
 
 
 div#container  {
@@ -193,24 +191,20 @@ div#box {
 
 	width: 100%;
 	height: auto;
-	background: #DC143C;
+	background: #dbff76;
 	margin: 20px;
 	box-sizing:;
 	font-size: 20px;
 
 }
 
-
-
 div#rodape {
-
-
 
 text-shadow: -0.06em 0 red, 0.06em 0 cyan;
 position:unset;
 top: 10px;
 left: 10px;
-background-color: #DC143C;
+background-color: #bbba77;
 background-image: url("")
 font-style: bold;
 font-family: Arial, Helvetica, sans-serif;
@@ -218,18 +212,21 @@ font-size: medium;
 
 }
 
-
-
-
-
-
 </style>
+</head>
 
+<body>
 
-
-
-<body bgcolor="#CD5C5C">
-
+ <style>
+body {
+  background-image: url('castle.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style> 
+	
+	
 <div id="top">
 
 <input type="checkbox" id="bt_menu">
@@ -240,21 +237,21 @@ font-size: medium;
 			<li><a href="index.html">Home</a></li>
 			<li><a href="#">About</a>
 				<ul>
-					<li><a href="#">Cybernetic</a></li>
+					<li><a href="frontfoods.html">Styles</a></li>
+					<li><a href="frontfoods.html">Driverhead</a></li>
 				</ul>
 			</li>
 			
-			<li><a href="#">Products</a>
+			<li><a href="#">Creations</a>
 				
 				<ul>
-					<li><a href="#">Softwares</a></li>
+					<li><a href="pereskia.html">Logos</a></li>
+					<li><a href="curcumalonga.html">Interfaces</a></li>
+					<li><a href="zingiberofficinale.html">Identify</a></li>
 				</ul>	
-				
-				
-				
-			<li><a href="#">Contact</a>
+				<li><a href="#">Contact</a>
 				<ul>
-					<li><a href="#">Rafael 48 984824363</a></li>
+					<li><a href="contato.html">Please contact</a></li>
 				</ul>
 			</li>
 			
@@ -267,37 +264,123 @@ font-size: medium;
 </div>
 
 	<div id="campo">
-AMS ACTUAL MEDIA SOLUTIONS INC
+
+		<?php
+
+include ("classes/conexao.php");
+
+ <?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?> 
+
+
+
+<h1>Product crud challenge</h1><span style='font-size:30px;'>&#127938;</span><p>
+
+   <form action="index.php" enctype="multipart/form-data" method="post">        
+        
+  <table class="table table-dark table-striped" border="1" width="100%" bgcolor="668899">
+
+
+
+  <tr>
+    <td>Id</td>
+    <td><input type="number" name="id"> </td>
+  </tr>
+
+
+  <tr>
+      <td>Title</td>
+      <td> <input type="text" name="title"></td>
+
+  </tr>
+
+  <tr>
+      <td>Description</td>
+      <td><input type="text" name="description"></td>
+
+  </tr>
+
+  <tr>
+      <td>Image</td>
+      <td><input type="file" name="image">only jpg/png/gif, max filesize 5MB</td>
+
+  </tr>
+
+  <tr>
+      <td>Stock</td>
+      <td><input type="number" name="stock"></td>
+
+  </tr>
+
+  <tr>
+      <td></td>
+      <td><button type="button" class="btn btn-outline-success"><input type="submit" value="Register"></button></td>
+
+  </tr>
+
+</table>
+</form>
+
+CREATE TABLE Register (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(30) NOT NULL,
+description VARCHAR(4000),
+image VARCHAR(30) NOT NULL,
+stock VARCHAR(30) NOT NULL,
+) 
+
+if (isset ($_FILES [image])){
+    
+    $data
+
+    move_uploded_file($FILES['image'] ['tmp_name'] $data)
+
+    $sql_code ="INSERT INTO register (id, title, description, image, stock) VALUES ($id, $title, $description, $image, $stock)";
+    (mysqli>query ($sql_code))
+}
+
+?>
+		
+		
+		
+		
 	</div>
 
 
 	 <div id="container"> 
 
          	<div id="box">
-			
-			Ams é uma empresa do grupo RSC
          	</div>
          	<div id="box">
-Projetos pensados de acordo com o necessário. 
-		 </div>
-		 
+        	</div>
          	<div id="box">
-R. Schüler
-		 
-		 </div>
+            </div>
 
       </div>
 
 
 	<hr>
+
+
   			<div id="logotipo">
-			Ecodesigns Hall<br>
-				actualmediasolutions@gmail.com
+			Crud para estágio                                                   
 		    </div>
 
              <div id="rodape">
 
-			 Copyright - AMS ACTUAL MEDIA SOLUTIONS - All Rights Reserved
+			 Crud php
            
              </div>
 	
@@ -309,5 +392,6 @@ R. Schüler
 
 
 </body>
-
 </html>
+
+	
